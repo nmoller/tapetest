@@ -9,3 +9,7 @@ https://accessanalytic.com.au/quiz/advanced-excel/
 
 Le test de frappe pour le code contenue ici  a été copié depuis:
 https://official-typing-test.com/test/1test.html
+
+Essaie-le en allant à:
+
+https://nmoller.github.io/tapetest/test.html
