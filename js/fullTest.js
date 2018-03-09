@@ -400,24 +400,24 @@
       var epm = errors / realSec * 60;
       var wpm = Math.round($('#typedTextBox').val().length / 5 / realSec * 60);
       var realWpm = Math.round(wpm - epm);
-      var totalCharacters = $('#typedTextBox').val().length;    
+      var totalCharacters = $('#typedTextBox').val().length;
       var percentErrors = Math.round(
         (correctedErrors + errors) / totalCharacters * 1000
       );
       percentErrors /= 10;
       var accuracy = 100 - percentErrors;
 
-      !(function(d, s, id) {
-        var js,
-          fjs = d.getElementsByTagName(s)[0],
-          p = /^http:/.test(d.location) ? 'http' : 'https';
-        if (!d.getElementById(id)) {
-          js = d.createElement(s);
-          js.id = id;
-          js.src = p + '://platform.twitter.com/widgets.js';
-          fjs.parentNode.insertBefore(js, fjs);
-        }
-      })(document, 'script', 'twitter-wjs');
+      // !(function(d, s, id) {
+      //   var js,
+      //     fjs = d.getElementsByTagName(s)[0],
+      //     p = /^http:/.test(d.location) ? 'http' : 'https';
+      //   if (!d.getElementById(id)) {
+      //     js = d.createElement(s);
+      //     js.id = id;
+      //     js.src = p + '://platform.twitter.com/widgets.js';
+      //     fjs.parentNode.insertBefore(js, fjs);
+      //   }
+      // })(document, 'script', 'twitter-wjs');
 
       //SHOW RESULTS
       switch (true) {
@@ -428,7 +428,7 @@
             '<span class="sm">See our <a href="/help.html">Help</a> page for more information.</span>' +
           '</div>' + 
           '<div id="resultsRight">' + 
-            '<a href="/test/">Try Again</a>' +
+            '<a href="/tapetest/test.html">Try Again</a>' +
           '</div>'
         );
 
@@ -439,7 +439,7 @@
             .removeClass('box')
             .addClass('results')
             .html(
-              '<div id="resultsLeft">' + 
+              '<div id="resultsLeft">' +
                 '<div id="finalZero">' + time + ' Minute Test</div>' +
                 '<div id="finalOne">' +
                   'WPM : <strong>' + realWpm + ' </strong> <div class="ea">(error adjusted)</div>' +
@@ -451,12 +451,9 @@
                 '<span id="finalE">Corrections : ' + correctedErrors + '</span><br>' +
                 '<span id="finalFour">Total character count of ' + totalCharacters + '</span><br>' +
                 '<span id="finalFive">Gross WPM : ' + wpm + '</span>' +
-                '<a type="button" href="/test/" class="btn waves-effect waves-light smallTxt" name="action">' +
+                '<a type="button" href="/tapetest/test.html" class="btn waves-effect waves-light smallTxt" name="action">' +
                   'Try again <i class="material-icons right">send</i>' +
                 '</a>' +
-              '</div>' +
-              '<div id="resultsCta">' +
-                '<a href="/user/login">Log In</a> or <a href="/user/signup">Sign Up</a> to save your progress.' +
               '</div>'
             );
 
@@ -512,7 +509,7 @@
                 '<span id="finalThree">' + errors + ' uncorrected error(s)</span><br>' +
                 '<span id="finalFour">Total character count of ' + $('#typedTextBox').val().length + '</span><br>' +
                 '<span id="finalFive">' +
-                  'Gross WPM : ' + wpm + 
+                  'Gross WPM : ' + wpm +
                   '<a type="button" href="/tapetest/test.html" class="btn waves-effect waves-light smallTxt" name="action">' +
                     'Try again <i class="material-icons right">send</i>' +
                   '</a>' +
