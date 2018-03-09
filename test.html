@@ -47,8 +47,16 @@
 
   <div id="learn" class="testPage">
     <div id="intro">
-      <h2>Test de frappe 1 minute</h2>
+      <h2 id="testTitle"></h2>
     </div>
+    <div id="selectTime" class="input-field col s12">
+          <select>
+            <option value="1">1 minute</option>
+            <option value="3">3 minutes</option>
+            <option value="5">5 minutes</option>
+          </select>
+          <label>Temps du test</label>
+        </div>
     <div id="oldTextBox" class="box fullTest">
       <p class="error">LOADING... </p>
       <p class="error">If you see this message for more than 10 seconds, go to your browser settings and make sure that JavaScript is enabled.</p>
@@ -56,8 +64,9 @@
 
     <div id="typedBoxRow" class="row">
       <div class="col s12 l12">
+
         <div id="typedTextBoxHolder">
-          <textarea id="typedTextBox" class="box" spellcheck="false" placeholder="The test begins when you press your first key">
+          <textarea id="typedTextBox" class="box" spellcheck="false" placeholder="Le test commence dès que vous frappez la premier touche">
           </textarea>
         </div>
         <div id="bottomRow">
@@ -71,6 +80,20 @@
     </div>
 
   </div>
+  <script type="text/javascript">
+    $('#testTitle').text('Test de frappe '+ min +' minute');
+    $(document).ready(function() {
+      $('select').material_select();
+    });
+    $('#selectTime').find('option[value="3"]').prop('selected', true);
+    $('#selectTime').on('change', 'select', function(){
+       min = $(this).val();
+       sec = '00'
+       $('#timer').text(min + ' : ' + sec);
+       $('#testTitle').text('Test de frappe '+ min +' minute');
+       $('select').material_select();
+    });
+  </script>
 </body>
 
 </html>

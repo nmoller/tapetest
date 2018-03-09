@@ -476,8 +476,7 @@
             .addClass('results')
             .html(
               '<div id="resultsLeft">' +
-                '<span id="finalZeroStop"><strong>TEST STOPPED BY USER</strong></span><br>' +
-                '<span id="noSaveWarning" hidden><strong>YOUR SCORE WILL NOT BE SAVED</strong></span>' +
+                '<span id="finalZeroStop"><strong>TEST ARRETE PAR UTILISATEUR</strong></span><br>' +
                 '<span id="finalOne">WPM : <strong>' + realWpm + ' </strong></span>' +
                 '<span class="small">(error adjusted)</span><br>' +
                 '<span id="finalTwo">Accuracy : <strong>' + accuracy + '%</strong></span>' +

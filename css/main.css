@@ -76,6 +76,17 @@ nav {
       @media (max-width: 992px) {
         #learn #intro h2 {
           font-size: 28px; } }
+
+#learn #selectTime {
+  height: 50px;
+  width: 200px;
+  padding-left: 95px;
+}
+
+#learn #selectTime label {
+  padding-left: 80px;
+}
+
   #learn article h3 {
     font-size: 18px;
     font-weight: bold; }
