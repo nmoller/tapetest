@@ -518,9 +518,9 @@
             );
       }
 
-      if (window.localStorage.getItem('ottUsername')) {
+      //if (window.localStorage.getItem('ottUsername')) {
         $('#resultsCta').hide();
-      }
+      //}
 
       //SHOW TYPED WORDS WITH ERRORS HIGHLIGHTED
       $('#typedTextBoxHolder').html('').addClass('testBox');
