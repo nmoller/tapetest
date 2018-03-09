@@ -458,16 +458,16 @@
             );
 
             // in js/apiData.js
-            window.saveTypingTestData({
-              type: 'fullTest',
-              time: time,
-              realWpm: realWpm,
-              accuracy: accuracy,
-              errors: errors,
-              correctedErrors: correctedErrors,
-              totalCharacters: totalCharacters,
-              wpm: wpm
-            });
+            // window.saveTypingTestData({
+            //   type: 'fullTest',
+            //   time: time,
+            //   realWpm: realWpm,
+            //   accuracy: accuracy,
+            //   errors: errors,
+            //   correctedErrors: correctedErrors,
+            //   totalCharacters: totalCharacters,
+            //   wpm: wpm
+            // });
           break;
 
         case realWpm > 5 && whyStop === 'button':
