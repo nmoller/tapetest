@@ -351,15 +351,15 @@ nav {
       width: 700px; } }
   @media (max-width: 710px) {
     #typedBoxRow {
-      width: 500px; } }
+      width: 710px; } }
   @media (max-width: 510px) {
     #typedBoxRow {
-      width: 315px; } }
+      width: 510px; } }
   #typedBoxRow .col {
     padding: 0; }
   #typedBoxRow #typedTextBoxHolder {
     height: 200px;
-    width: 650px;
+    width: 100%;
     font-weight: bold;
     background-color: #F7F7FF; }
     @media (max-width: 992px) {
@@ -367,10 +367,10 @@ nav {
         width: 700px; } }
     @media (max-width: 710px) {
       #typedBoxRow #typedTextBoxHolder {
-        width: 500px; } }
+        width: 710px; } }
     @media (max-width: 510px) {
       #typedBoxRow #typedTextBoxHolder {
-        width: 315px; } }
+        width: 510px; } }
     #typedBoxRow #typedTextBoxHolder .incorrect {
       font-weight: normal;
       color: red; }
@@ -437,6 +437,14 @@ form {
     background: #495867; }
   form #emailListLabel {
     float: right; }
+
+
+      #bottomRow {
+  width: 100%;
+}
+
+
+
 
 #forgotPwSuccess {
   width: 100%;
