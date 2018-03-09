@@ -1,60 +1,52 @@
-$(function() {
-
-  $('#openFeedbackButton').on('click', function() {
-    $('#feedbackModal').css('display', 'block')
-    setTimeout(function() {
-      $('#feedbackModal').css('opacity', '1');
-    });
-  });
-
-  $('#closeFeedbackButton').on('click', function() {
-    $('#feedbackModal').css('opacity', '0');
-    setTimeout(function() {
-      $('#feedbackModal').css('display', 'none');
-    }, 500);
-  });
-
-  $('#submitFeedbackButton').on('click', function(e) {
-    e.preventDefault();
-    var name = $('#feedbackName').val();
-    var email = $('#feedbackEmail').val();
-    var comment = $('#feedbackComment').val();
-    if (!comment) { return };
-    var data = {
-      name: name,
-      email: email,
-      comment: comment
-    };
-
-    $.ajax({
-      method: 'POST',
-      headers: {
-        "Content-Type": "application/json"
-      },
-      url: '/api/submitFeedback',
-      data: JSON.stringify(data),
-      success: function() {
-        $('#feedbackSuccessBox').show().text("Thank You For Your Feedback");
-        $('#feedbackName').val('');
-        $('#feedbackEmail').val('');
-        $('#feedbackComment').val('');
-        setTimeout(function() {
-          $('#feedbackSuccessBox').text('').hide();
-          $('#closeFeedbackButton').click();
-        }, 3000);
-      },
-      error: function() {
-        $('#feedbackSuccessBox').show().text("Thank You For Your Feedback");
-        $('#feedbackName').val('');
-        $('#feedbackEmail').val('');
-        $('#feedbackComment').val('');
-        setTimeout(function() {
-          $('#feedbackSuccessBox').text('').hide();
-          $('#closeFeedbackButton').click();
-        }, 3000);
+window.loginWithToken = function(token) {
+  if (/jail/i.test(window.location)) {
+    return;
+  }
+  $.ajax({
+    method: 'POST',
+    url: '/user/loginWithToken',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    data: JSON.stringify({ token: token }),
+    success: function(res) {
+      if (/success/i.test(res)) {
+        window.location.reload();
       }
-    });
-
-    window.localStorage.setItem('ottFeedback', true);
+    },
+    error: function() {
+      window.localStorage.removeItem('ottToken');
+    }
   });
+}
+
+window.saveTenKeyData = function(results) {
+  $.ajax({
+    method: 'POST',
+    url: '/api/saveTenKeyData',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    data: JSON.stringify(results)
+  });
+}
+
+window.saveTypingTestData = function(results) {
+  $.ajax({
+    method: 'POST',
+    url: '/api/saveTypingTestData',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    data: JSON.stringify(results)
+  });
+}
+
+$(function() {
+  var path = window.location.href;
+  if ($('#publishButton')) {
+    if (/\/\/test\./.test(path)) {
+      $('#publishButton').show().on('click', function() { window.location = '/admin/publishSite' });
+    }
+  }
 });
