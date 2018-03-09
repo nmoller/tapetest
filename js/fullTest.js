@@ -445,10 +445,6 @@
                   'WPM : <strong>' + realWpm + ' </strong> <div class="ea">(error adjusted)</div>' +
                 '</div>' +
                 '<div id="finalTwo">Accuracy : <strong>' + accuracy + '%</strong></div>' +
-                '<div id="finalTwitter">' +
-                  '<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-54796bf9622ad8d6"></script>' +
-                  '<div class="addthis_sharing_toolbox"></div>' +
-                '</div>' +
               '</div>' +
               '<div id="resultsRight">' +
                 '<span id="finalThree">' + errors + ' uncorrected error(s)</span><br>' +
@@ -494,12 +490,9 @@
                 '<span id="finalE">Corrections : ' + correctedErrors + '</span><br>' +
                 '<span id="finalFour">Total character count of ' + $('#typedTextBox').val().length + '</span><br>' +
                 '<span id="finalFive">Gross WPM : ' + wpm + '</span>' +
-                '<a type="button" href="/test/" class="btn waves-effect waves-light smallTxt" name="action">' +
+                '<a type="button" href="/tapetest/test.html" class="btn waves-effect waves-light smallTxt" name="action">' +
                   'Try again <i class="material-icons right">send</i>' +
                 '</a>' +
-              '</div>' +
-              '<div id="resultsCta">' +
-                '<a href="/user/login">Log In</a> or <a href="/user/signup">Sign Up</a> to save your progress.' +
               '</div>'
             );
           break;
@@ -520,14 +513,11 @@
                 '<span id="finalFour">Total character count of ' + $('#typedTextBox').val().length + '</span><br>' +
                 '<span id="finalFive">' +
                   'Gross WPM : ' + wpm + 
-                  '<a type="button" href="/test/" class="btn waves-effect waves-light smallTxt" name="action">' +
+                  '<a type="button" href="/tapetest/test.html" class="btn waves-effect waves-light smallTxt" name="action">' +
                     'Try again <i class="material-icons right">send</i>' +
                   '</a>' +
                 '</span>' +
-              '</div>' +
-              '<div id="resultsCta">' +
-                '<a href="/user/login">Log In</a> or <a href="/user/signup">Sign Up</a> to save your progress.' +
-              '</div>'
+              '</div>' 
             );
       }
 
