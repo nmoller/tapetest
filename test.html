@@ -20,27 +20,10 @@
 
 
 <link rel="stylesheet" type="text/css" href="css/main.css" media="all">
-<script src="js/feedbackModal.js"></script>
-<script src="js/apiData.js"></script>
-<script>
-    (function() {
-      var token = window.localStorage.getItem('ottToken');
-      if (!token) return;
-      window.loginWithToken(token);
-    })();
+<!-- Pour être en mesure de changer la langue -->
+<script src="https://unpkg.com/i18next/i18next.js"></script>
 
-  $(function() {
-    $('.button-collapse').sideNav();
-    $('.logout').on('click', function() {
-      window.localStorage.removeItem('ottToken');
-    });
-  });
-</script>
 
-  <script type="text/javascript" src="js/fullTest.js"></script>
-  <script>
-      window.localStorage.removeItem('ottUsername');
-  </script>
 </head>
 
 <body>
@@ -48,12 +31,7 @@
   <div id="learn" class="testPage">
     <nav>
       <div class="nav-wrapper">
-        <a href="#" class="brand-logo center">Logo</a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><a href="sass.html">Sass</a></li>
-          <li><a href="badges.html">Components</a></li>
-          <li><a href="collapsible.html">JavaScript</a></li>
-        </ul>
+        <a href="#" class="brand-logo center" id="i18nTitle"></a>
       </div>
     </nav>
     <div id="intro">
@@ -61,11 +39,11 @@
     </div>
     <div id="selectTime" class="input-field col s12">
       <select>
-        <option value="1">1 minute</option>
-        <option value="3">3 minutes</option>
-        <option value="5">5 minutes</option>
+        <option value="1" id="i18n1minute"></option>
+        <option value="3" id="i18n3minute"></option>
+        <option value="5" id="i18n5minute"></option>
       </select>
-      <label><i class="tiny material-icons">schedule</i> Temps du test</label>
+      <label id="i18nDuration"></label>
     </div>
     <div id="oldTextBox" class="box fullTest">
       <p class="error">LOADING... </p>
@@ -76,7 +54,7 @@
       <div class="col s12 l12">
 
         <div id="typedTextBoxHolder">
-          <textarea id="typedTextBox" class="box" spellcheck="false" placeholder="Le test commence dès que vous frappez la premier touche">
+          <textarea id="typedTextBox" class="box" spellcheck="false">
           </textarea>
         </div>
         <div id="bottomRow">
@@ -115,9 +93,12 @@
             </div>
           </div>
         </footer>
+
+  <script type="text/javascript" src="js/lang.js"></script>
+  <script type="text/javascript" src="js/fullTest.js"></script>
   <script type="text/javascript">
     function getTitle(min) {
-      return 'Test vitesse au clavier : '+ min +' minute';
+      return i18next.t('temp', {tmin: min});
     }
     $('#testTitle').text(getTitle(min));
     $(document).ready(function() {

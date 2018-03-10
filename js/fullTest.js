@@ -1,16 +1,5 @@
 //PARAGRAPHS
 (function() {
-  var f = [];
-  f[0] = "Le Fort Laramie, qui occupe un des points extrêmes, est situé au confluent nord de la Nébraska ou Platte, avec un autre cours d'eau qu'elle absorbe. Des sources de la Platte à ce confluent la rivière décrit un cercle immense d'environ quatre-cents milles, embrassant dans son cours plusieurs chaînes de montagnes égales en hauteur. D'un autre côté, la rivière Laramie dont la naissance est proche de la Nébraska, entoure le reste du territoire, sur un diamètre de soixante-et-quinze milles, et complète ainsi la circonférence. Cette région n'est pas seulement une prairie monotone et stérile; on y voit des vallées fertiles, riantes, couvertes de forêts et de récoltes; des côteaux admirables et verdoyants; de gras pâturages; des cours d'eau rayonnant dans toutes les directions.";
-
-  f[1] = "Au milieu des âpres Montagnes Rocheuses, c'est un oasis, un Éden inattendu. Tout autour, le colossal amphithéâtre des hautes cîmes s'élève dans sa grandeur solitaire et forme un saisissant contraste avec les beautés plus douces, plus harmonieuses des vallées; on dirait les sourcils froncés de spectateurs géants jetant un regard sévère sur les folâtreries gracieuses de la nature.";
-  f[2] = "Le Fort Laramie, qui occupe un des points extrêmes, est situé au confluent nord de la Nébraska ou Platte, avec un autre cours d'eau qu'elle absorbe. Des sources de la Platte à ce confluent la rivière décrit un cercle immense d'environ quatre-cents milles, embrassant dans son cours plusieurs chaînes de montagnes égales en hauteur. D'un autre côté, la rivière Laramie dont la naissance est proche de la Nébraska, entoure le reste du territoire, sur un diamètre de soixante-et-quinze milles, et complète ainsi la circonférence. Cette région n'est pas seulement une prairie monotone et stérile; on y voit des vallées fertiles, riantes, couvertes de forêts et de récoltes; des côteaux admirables et verdoyants; de gras pâturages; des cours d'eau rayonnant dans toutes les directions.";
-
-  f[3] = "Au milieu des âpres Montagnes Rocheuses, c'est un oasis, un Éden inattendu. Tout autour, le colossal amphithéâtre des hautes cîmes s'élève dans sa grandeur solitaire et forme un saisissant contraste avec les beautés plus douces, plus harmonieuses des vallées; on dirait les sourcils froncés de spectateurs géants jetant un regard sévère sur les folâtreries gracieuses de la nature.";
-  f[4] = "Le Fort Laramie, qui occupe un des points extrêmes, est situé au confluent nord de la Nébraska ou Platte, avec un autre cours d'eau qu'elle absorbe. Des sources de la Platte à ce confluent la rivière décrit un cercle immense d'environ quatre-cents milles, embrassant dans son cours plusieurs chaînes de montagnes égales en hauteur. D'un autre côté, la rivière Laramie dont la naissance est proche de la Nébraska, entoure le reste du territoire, sur un diamètre de soixante-et-quinze milles, et complète ainsi la circonférence. Cette région n'est pas seulement une prairie monotone et stérile; on y voit des vallées fertiles, riantes, couvertes de forêts et de récoltes; des côteaux admirables et verdoyants; de gras pâturages; des cours d'eau rayonnant dans toutes les directions.";
-
-  f[5] = "Au milieu des âpres Montagnes Rocheuses, c'est un oasis, un Éden inattendu. Tout autour, le colossal amphithéâtre des hautes cîmes s'élève dans sa grandeur solitaire et forme un saisissant contraste avec les beautés plus douces, plus harmonieuses des vallées; on dirait les sourcils froncés de spectateurs géants jetant un regard sévère sur les folâtreries gracieuses de la nature.";
-
   var p = [];
 
   p[0] = "This book, which presents the whole splendid history of English literature from Anglo-Saxon times to the close of the Victorian Era, has three specific aims. The first is to create or to encourage in every student the desire to read the best books, and to know literature itself rather than what has been written about literature. The second is to interpret literature both personally and historically, that is, to show how a great book generally reflects not only the author's life and thought but also the spirit of the age and the ideals of the nation's history. The third aim is to show, by a study of each successive period, how our literature has steadily developed from its first simple songs and stories to its present complexity in prose and poetry.";
@@ -123,7 +112,7 @@
       }
 
       return array;
-    }
+    };
 
     random(p);
     //SPLIT PARAGRAPHS INTO WORDS, PUSH WORDS INTO OLDTEXTBOX
@@ -456,35 +445,8 @@
             .removeClass('box')
             .addClass('results')
             .html(
-              '<div id="resultsLeft">' +
-                '<div id="finalZero">' + time + ' Minute Test</div>' +
-                '<div id="finalOne">' +
-                  'WPM : <strong>' + realWpm + ' </strong> <div class="ea">(error adjusted)</div>' +
-                '</div>' +
-                '<div id="finalTwo">Accuracy : <strong>' + accuracy + '%</strong></div>' +
-              '</div>' +
-              '<div id="resultsRight">' +
-                '<span id="finalThree">' + errors + ' uncorrected error(s)</span><br>' +
-                '<span id="finalE">Corrections : ' + correctedErrors + '</span><br>' +
-                '<span id="finalFour">Total character count of ' + totalCharacters + '</span><br>' +
-                '<span id="finalFive">Gross WPM : ' + wpm + '</span>' +
-                '<a type="button" href="/tapetest/test.html" class="btn waves-effect waves-light smallTxt" name="action">' +
-                  'Try again <i class="material-icons right">send</i>' +
-                '</a>' +
-              '</div>'
+              getResultText(time, realWpm, accuracy, errors, correctedErrors, totalCharacters, wpm)
             );
-
-            // in js/apiData.js
-            // window.saveTypingTestData({
-            //   type: 'fullTest',
-            //   time: time,
-            //   realWpm: realWpm,
-            //   accuracy: accuracy,
-            //   errors: errors,
-            //   correctedErrors: correctedErrors,
-            //   totalCharacters: totalCharacters,
-            //   wpm: wpm
-            // });
           break;
 
         case realWpm > 5 && whyStop === 'button':
@@ -492,21 +454,7 @@
             .removeClass('box')
             .addClass('results')
             .html(
-              '<div id="resultsLeft">' +
-                '<span id="finalZeroStop"><strong>TEST ARRETE PAR UTILISATEUR</strong></span><br>' +
-                '<span id="finalOne">WPM : <strong>' + realWpm + ' </strong></span>' +
-                '<span class="small">(error adjusted)</span><br>' +
-                '<span id="finalTwo">Accuracy : <strong>' + accuracy + '%</strong></span>' +
-              '</div>' +
-              '<div id="resultsRight">' +
-                '<span id="finalThree">' + errors + ' uncorrected error(s)</span><br>' +
-                '<span id="finalE">Corrections : ' + correctedErrors + '</span><br>' +
-                '<span id="finalFour">Total character count of ' + $('#typedTextBox').val().length + '</span><br>' +
-                '<span id="finalFive">Gross WPM : ' + wpm + '</span>' +
-                '<a type="button" href="/tapetest/test.html" class="btn waves-effect waves-light smallTxt" name="action">' +
-                  'Try again <i class="material-icons right">send</i>' +
-                '</a>' +
-              '</div>'
+              getResultText(0, realWpm, accuracy, errors, correctedErrors, $('#typedTextBox').val().length, wpm)
             );
           break;
 
@@ -515,28 +463,39 @@
             .removeClass('box')
             .addClass('results')
             .html(
-              '<div id="resultsLeft" class="badResult">' +
-                '<span id="f1strong">' +
-                  'Make sure your caps-lock is not on, and that you type the highligted word.<br>Please try again.' +
-                '</span><br>' +
-                '<span class="sm">See our <a href="/help.html">Help</a> page for more information.</span>' +
-              '</div>' +
-              '<div id="resultsRight">' +
-                '<span id="finalThree">' + errors + ' uncorrected error(s)</span><br>' +
-                '<span id="finalFour">Total character count of ' + $('#typedTextBox').val().length + '</span><br>' +
-                '<span id="finalFive">' +
-                  'Gross WPM : ' + wpm +
-                  '<a type="button" href="/tapetest/test.html" class="btn waves-effect waves-light smallTxt" name="action">' +
-                    'Try again <i class="material-icons right">send</i>' +
-                  '</a>' +
-                '</span>' +
-              '</div>' 
+               getResultText(0, 0, 0, errors, correctedErrors, $('#typedTextBox').val().length, wpm)
             );
       }
 
-      //if (window.localStorage.getItem('ottUsername')) {
-        $('#resultsCta').hide();
-      //}
+      function getResultText(time, realWpm, accuracy, errors, correctedErrors, totalCharacters, wpm) {
+        var firstPart = '';
+        if (time === 0 && realWpm !== 0) {
+          firstPart = i18next.t('userStop');
+        } 
+        else if (realWpm === 0) {
+          firstPart = i18next.t('verifyCL');
+        }
+        else {
+          firstPart = i18next.t('temp', {tmin: time});
+        }
+
+        return '<div id="resultsLeft">' +
+                  '<div id="finalZero">' + firstPart + '</div>' +
+                  '<div id="finalOne">' +
+                  i18next.t('realWPM', {wpm: realWpm})+
+                  '</div>' +
+                  i18next.t('accuracy', {accuracy: accuracy})+
+              '</div>' +
+              '<div id="resultsRight">' +
+                '<span id="finalThree">' + errors + ' uncorrected error(s)</span><br>' +
+                '<span id="finalE">Corrections : ' + correctedErrors + '</span><br>' +
+                '<span id="finalFour">Total character count of ' + totalCharacters + '</span><br>' +
+                '<span id="finalFive">Gross WPM : ' + wpm + '</span>' +
+                '<a type="button" href="/tapetest/test.html" class="btn waves-effect waves-light smallTxt" name="action">' +
+                  i18next.t('tryAgain')+ '<i class="material-icons right">send</i>' +
+                '</a>' +
+              '</div>';
+      }
 
       //SHOW TYPED WORDS WITH ERRORS HIGHLIGHTED
       $('#typedTextBoxHolder').html('').addClass('testBox');
