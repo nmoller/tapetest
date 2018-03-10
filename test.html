@@ -46,17 +46,27 @@
 <body>
 
   <div id="learn" class="testPage">
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo center">Logo</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="sass.html">Sass</a></li>
+          <li><a href="badges.html">Components</a></li>
+          <li><a href="collapsible.html">JavaScript</a></li>
+        </ul>
+      </div>
+    </nav>
     <div id="intro">
       <h2 id="testTitle"></h2>
     </div>
     <div id="selectTime" class="input-field col s12">
-          <select>
-            <option value="1">1 minute</option>
-            <option value="3">3 minutes</option>
-            <option value="5">5 minutes</option>
-          </select>
-          <label>Temps du test</label>
-        </div>
+      <select>
+        <option value="1">1 minute</option>
+        <option value="3">3 minutes</option>
+        <option value="5">5 minutes</option>
+      </select>
+      <label><i class="tiny material-icons">schedule</i> Temps du test</label>
+    </div>
     <div id="oldTextBox" class="box fullTest">
       <p class="error">LOADING... </p>
       <p class="error">If you see this message for more than 10 seconds, go to your browser settings and make sure that JavaScript is enabled.</p>
@@ -80,8 +90,36 @@
     </div>
 
   </div>
+   <footer class="page-footer">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text">Footer Content</h5>
+                <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+              </div>
+              <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Links</h5>
+                <ul>
+                  <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            © 2014 Copyright Text
+            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            </div>
+          </div>
+        </footer>
   <script type="text/javascript">
-    $('#testTitle').text('Test de frappe '+ min +' minute');
+    function getTitle(min) {
+      return 'Test vitesse au clavier : '+ min +' minute';
+    }
+    $('#testTitle').text(getTitle(min));
     $(document).ready(function() {
       $('select').material_select();
     });
@@ -90,7 +128,7 @@
        min = $(this).val();
        sec = '00'
        $('#timer').text(min + ' : ' + sec);
-       $('#testTitle').text('Test de frappe '+ min +' minute');
+       $('#testTitle').text(getTitle(min));
        $('select').material_select();
     });
   </script>

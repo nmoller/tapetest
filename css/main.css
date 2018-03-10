@@ -1,4 +1,7 @@
-nav {
+nav, .page-footer {
+  background-color: #0057B8;
+}
+/*nav {
   background-color: #F7F7FF;
   max-width: 1500px;
   margin: 0 auto; }
@@ -33,7 +36,7 @@ nav {
     @media (max-width: 650px) {
       nav h1 {
         font-size: 16px;
-        margin-top: -10px; } }
+        margin-top: -10px; } }*/
 
 #feedbackPrompt {
   background-color: #FE5F55;
