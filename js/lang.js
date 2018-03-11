@@ -16,7 +16,10 @@ i18next.init({
         "verifyCL": "Vérifier CL",
         "realWPM": 'MPM : <strong> {{wpm}} </strong> <div class="ea">(ajusté avec erreur)</div>',
         "accuracy": '<div id="finalTwo">Exactitude : <strong> {{accuracy}}%</strong></div>',
-        "errors": '<span id="finalThree">{{errors}} erreur(s) non-corrigées</span><br>'
+        "nocorrected": '<span id="finalThree"> {{errors}} non-corrigée(s)</span><br>',
+        "corrections": '<span id="finalE">Corrigés :  {{correctedErrors}} </span><br>',
+        "totlChar": '<span id="finalFour">Nombre total de caractères {{totalCharacters}}</span><br>',
+        "finalWPM": '<span id="finalFive">MPM sans ajustement : {{wpm}} </span>',
       }
     }
   }

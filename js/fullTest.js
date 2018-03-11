@@ -490,10 +490,10 @@
                   i18next.t('accuracy', {accuracy: accuracy})+
               '</div>' +
               '<div id="resultsRight">' +
-                '<span id="finalThree">' + errors + ' uncorrected error(s)</span><br>' +
-                '<span id="finalE">Corrections : ' + correctedErrors + '</span><br>' +
-                '<span id="finalFour">Total character count of ' + totalCharacters + '</span><br>' +
-                '<span id="finalFive">Gross WPM : ' + wpm + '</span>' +
+                 i18next.t('nocorrected', {errors: errors})+
+                 i18next.t('corrections', {correctedErrors: correctedErrors})+
+                 i18next.t('totlChar', {totalCharacters: totalCharacters})+
+                 i18next.t('finalWPM', {wpm: wpm})+
                 '<a type="button" href="/tapetest/test.html" class="btn waves-effect waves-light smallTxt" name="action">' +
                   i18next.t('tryAgain')+ '<i class="material-icons right">send</i>' +
                 '</a>' +
