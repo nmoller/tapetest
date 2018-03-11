@@ -13,3 +13,13 @@ https://official-typing-test.com/test/1test.html
 Essaie-le en allant à:
 
 https://nmoller.github.io/tapetest/test.html
+
+## Excel
+
+On peut s'inspirer de 
+
+https://jsfiddle.net/ondras/hYfN3/
+
+On a aussi:
+
+https://handsontable.com/
