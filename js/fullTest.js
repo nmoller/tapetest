@@ -184,6 +184,8 @@
     var lastLetterWhich;
     var lastLetterKeycode;
 
+     $('#selectTime').show();
+
     //FOCUS TO THE TEXTAREA, START THE TIMER
     $('#typedTextBox')
       .val('')
@@ -468,6 +470,7 @@
       }
 
       function getResultText(time, realWpm, accuracy, errors, correctedErrors, totalCharacters, wpm) {
+        $('#selectTime').hide();
         var firstPart = '';
         if (time === 0 && realWpm !== 0) {
           firstPart = i18next.t('userStop');
